@@ -5,7 +5,8 @@
 	<property name="build.dir" location="build" />
 	<property name="dist.dir" location="dist" />
 	<property name="docs.dir" location="docs" />
-
+	<property name="lib.dir" location="lib" />
+	
 	<target name="clean">
 		<delete dir="${build.dir}" />
 		<delete dir="${docs.dir}" />
@@ -19,7 +20,10 @@
 	</target>
 	
 	<target name="compile" depends="clean,makedir">
-		<javac srcdir="${src.dir}" destdir="${build.dir}" >
+		<javac srcdir="${src.dir}" destdir="${build.dir}"  >
+			<classpath>
+				<path id="test1" location="${lib.dir}/log4j-1.2.17.jar"/>
+			</classpath>
 		</javac>
 	</target>
 
@@ -33,6 +37,7 @@
 	
 	<target name="jar" depends="compile">
 		<jar destfile="${dist.dir}\firstantbuild.jar" basedir="${build.dir}">
+			
 			<manifest>
 				<attribute name="Main-Class" value="test.Main" />
 			</manifest>
