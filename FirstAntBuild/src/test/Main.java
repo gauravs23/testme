@@ -7,5 +7,6 @@ public class Main {
 		MyMath math  = new MyMath();
 		System.out.println("New Result now is : "+math.multi(5,10));
 		System.out.println("New Result now is : "+math.multi(10,20));
+		System.out.println("New Result now is : "+math.multi(100,500));
 	}
 }
